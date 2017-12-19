@@ -1,0 +1,18 @@
+# Content stuff
+/content/backups/
+/content/cache/
+/content/uploads/
+/content/upgrade/
+/content/plugins/*/
+
+# Configurations
+.env
+
+# WordPress core
+/wp/
+
+# Composer
+/vendor/
+
+# Don't ignore custom plugin
+!/content/plugins/rwc-backend/

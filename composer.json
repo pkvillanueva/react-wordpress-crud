@@ -1,0 +1,39 @@
+{
+  "name": "pkvillanueva/wordpress-project-boilerplate",
+  "description": "The boilerplate I use when starting a WordPress project.",
+  "type": "project",
+  "license": "MIT",
+  "homepage": "https://github.com/pkvillanueva/wordpress-project-boilerplate",
+  "authors": [
+    {
+      "email": "pkrvillanueva@gmail.com",
+      "homepage": "http://pkvillanueva.com",
+      "name": "Patrick Villanueva"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
+  "require": {
+    "php": ">=5.6",
+    "vlucas/phpdotenv": "2.4.*",
+    "composer/installers": "1.4.*",
+    "johnpbloch/wordpress": "4.9.1"
+  },
+  "extra": {
+    "wordpress-install-dir": "wp",
+    "installer-paths": {
+      "content/mu-plugins/{$name}": ["type:wordpress-muplugin"],
+      "content/plugins/{$name}": ["type:wordpress-plugin"],
+      "content/themes/{$name}": ["type:wordpress-theme"]
+    }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "php -r \"copy( '.env.example', '.env' );\""
+    ]
+  }
+}
