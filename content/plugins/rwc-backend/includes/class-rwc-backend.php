@@ -90,9 +90,10 @@ class RWC_Backend {
 		/** Set plugin locale for internationalization. */
 		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
 
-		/** Register the plugin post types. */
+		/** Register the plugin post types and REST API responses. */
 		$post_types = new RWC_Backend_Post_Types();
 		
 		add_action( 'init', array( $post_types, 'register_post_types' ) );
+		add_action( 'rest_api_init', array( $post_types, 'register_applicants_rest_fields' ) );
 	}
 }

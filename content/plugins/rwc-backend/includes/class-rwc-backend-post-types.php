@@ -56,4 +56,80 @@ class RWC_Backend_Post_Types {
 			'rest_base'          => 'applicants'
 		) );
 	}
+
+	/**
+	 * Modify the api response of applicant post type
+	 * 
+	 * @since 1.0.0
+	 */
+	public function register_applicants_rest_fields() {
+		/** Gender -- post meta field. */
+		register_rest_field( 'applicant', 'gender', array(
+			'get_callback'    => array( $this, 'get_post_meta_api' ),
+			'update_callback' => null,
+			'schema'          => null
+		) );
+
+		/** Phone -- post meta field. */
+		register_rest_field( 'applicant', 'phone', array(
+			'get_callback'    => array( $this, 'get_post_meta_api' ),
+			'update_callback' => null,
+			'schema'          => null
+		) );
+
+		/** Email -- post meta field. */
+		register_rest_field( 'applicant', 'email', array(
+			'get_callback'    => array( $this, 'get_post_meta_api' ),
+			'update_callback' => null,
+			'schema'          => null
+		) );
+
+		/** Address -- post meta field. */
+		register_rest_field( 'applicant', 'address', array(
+			'get_callback'    => array( $this, 'get_post_meta_api' ),
+			'update_callback' => null,
+			'schema'          => null
+		) );
+
+		/** Nationality -- post meta field. */
+		register_rest_field( 'applicant', 'nationality', array(
+			'get_callback'    => array( $this, 'get_post_meta_api' ),
+			'update_callback' => null,
+			'schema'          => null
+		) );
+
+		/** Birthday -- post meta field. */
+		register_rest_field( 'applicant', 'birthday', array(
+			'get_callback'    => array( $this, 'get_post_meta_api' ),
+			'update_callback' => null,
+			'schema'          => null
+		) );
+
+		/** Education Background -- post meta field. */
+		register_rest_field( 'applicant', 'education_background', array(
+			'get_callback'    => array( $this, 'get_post_meta_api' ),
+			'update_callback' => null,
+			'schema'          => null
+		) );
+
+		/** Mode of Contact -- post meta field. */
+		register_rest_field( 'applicant', 'mode_of_contact', array(
+			'get_callback'    => array( $this, 'get_post_meta_api' ),
+			'update_callback' => null,
+			'schema'          => null
+		) );
+	}
+
+	/**
+	 * Callback function for getting post meta value
+	 * 
+	 * @since 1.0.0
+	 * 
+	 * @param  array $object
+	 * @param  string $field_name
+	 * @return string
+	 */
+	public function get_post_meta_api( $object, $field_name ) {
+		return get_post_meta( $object['id'], $field_name, true );
+	}
 }
