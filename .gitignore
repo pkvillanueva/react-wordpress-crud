@@ -8,6 +8,9 @@
 # Don't ignore custom plugin
 !/content/plugins/rwc-backend/
 
+# Theme files ignore
+/content/themes/rwc-frontend/package-lock.json
+
 # Configurations
 .env
 
