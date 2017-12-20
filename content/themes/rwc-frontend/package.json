@@ -1,0 +1,34 @@
+{
+  "name": "rwc-frontend",
+  "version": "1.0.0",
+  "description": "The front-end of the combined React + WordPress project.",
+  "author": "Patrick Villanueva",
+  "homepage": "https://github.com/pkvillanueva/react-wordpress-crud#readme",
+  "license": "ISC",
+  "main": "/src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pkvillanueva/react-wordpress-crud.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-form": "^7.2.0",
+    "redux-thunk": "^2.2.0"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7"
+  }
+}
