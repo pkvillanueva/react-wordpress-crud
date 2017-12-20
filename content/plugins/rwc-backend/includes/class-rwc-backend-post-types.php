@@ -66,56 +66,56 @@ class RWC_Backend_Post_Types {
 		/** Gender -- post meta field. */
 		register_rest_field( 'applicant', 'gender', array(
 			'get_callback'    => array( $this, 'get_post_meta_api' ),
-			'update_callback' => null,
+			'update_callback' => array( $this, 'update_post_meta_api' ),
 			'schema'          => null
 		) );
 
 		/** Phone -- post meta field. */
 		register_rest_field( 'applicant', 'phone', array(
 			'get_callback'    => array( $this, 'get_post_meta_api' ),
-			'update_callback' => null,
+			'update_callback' => array( $this, 'update_post_meta_api' ),
 			'schema'          => null
 		) );
 
 		/** Email -- post meta field. */
 		register_rest_field( 'applicant', 'email', array(
 			'get_callback'    => array( $this, 'get_post_meta_api' ),
-			'update_callback' => null,
+			'update_callback' => array( $this, 'update_post_meta_api' ),
 			'schema'          => null
 		) );
 
 		/** Address -- post meta field. */
 		register_rest_field( 'applicant', 'address', array(
 			'get_callback'    => array( $this, 'get_post_meta_api' ),
-			'update_callback' => null,
+			'update_callback' => array( $this, 'update_post_meta_api' ),
 			'schema'          => null
 		) );
 
 		/** Nationality -- post meta field. */
 		register_rest_field( 'applicant', 'nationality', array(
 			'get_callback'    => array( $this, 'get_post_meta_api' ),
-			'update_callback' => null,
+			'update_callback' => array( $this, 'update_post_meta_api' ),
 			'schema'          => null
 		) );
 
 		/** Birthday -- post meta field. */
 		register_rest_field( 'applicant', 'birthday', array(
 			'get_callback'    => array( $this, 'get_post_meta_api' ),
-			'update_callback' => null,
+			'update_callback' => array( $this, 'update_post_meta_api' ),
 			'schema'          => null
 		) );
 
 		/** Education Background -- post meta field. */
 		register_rest_field( 'applicant', 'education_background', array(
 			'get_callback'    => array( $this, 'get_post_meta_api' ),
-			'update_callback' => null,
+			'update_callback' => array( $this, 'update_post_meta_api' ),
 			'schema'          => null
 		) );
 
 		/** Mode of Contact -- post meta field. */
 		register_rest_field( 'applicant', 'mode_of_contact', array(
 			'get_callback'    => array( $this, 'get_post_meta_api' ),
-			'update_callback' => null,
+			'update_callback' => array( $this, 'update_post_meta_api' ),
 			'schema'          => null
 		) );
 	}
@@ -127,9 +127,25 @@ class RWC_Backend_Post_Types {
 	 * 
 	 * @param  array $object
 	 * @param  string $field_name
+	 * 
 	 * @return string
 	 */
 	public function get_post_meta_api( $object, $field_name ) {
 		return get_post_meta( $object['id'], $field_name, true );
+	}
+
+	/**
+	 * Handler for updating custom field data
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param mixed $value
+	 * @param object $object
+	 * @param string $field_name
+	 *
+	 * @return bool|int
+	 */
+	public function update_post_meta_api( $value, $object, $field_name ) {
+		return update_post_meta( $object->ID, $field_name, strip_tags( $value ) );
 	}
 }
