@@ -20,5 +20,9 @@ class RWC_Backend_Deactivator {
 	 * @since 1.0.0
 	 */
 	public static function deactivate() {
+		/** Unregister before flush rewrite post types. */
+		unregister_post_type( 'applicant' );
+
+		flush_rewrite_rules();
 	}
 }

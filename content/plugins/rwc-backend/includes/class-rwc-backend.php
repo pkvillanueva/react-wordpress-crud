@@ -89,5 +89,10 @@ class RWC_Backend {
 	public function run_loader() {
 		/** Set plugin locale for internationalization. */
 		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
+
+		/** Register the plugin post types. */
+		$post_types = new RWC_Backend_Post_Types();
+		
+		add_action( 'init', array( $post_types, 'register_post_types' ) );
 	}
 }
