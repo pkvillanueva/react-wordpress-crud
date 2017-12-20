@@ -5,6 +5,9 @@
 /content/upgrade/
 /content/plugins/*/
 
+# Don't ignore custom plugin
+!/content/plugins/rwc-backend/
+
 # Configurations
 .env
 
@@ -14,5 +17,5 @@
 # Composer
 /vendor/
 
-# Don't ignore custom plugin
-!/content/plugins/rwc-backend/
+# Ignore all node_modules folder
+node_modules/
