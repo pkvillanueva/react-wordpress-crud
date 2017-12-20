@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4bcc5b600efa81d140f6a5c933ffbda6",
+    "content-hash": "040d01c020468f0ac32e0e051593629a",
     "packages": [
         {
             "name": "composer/installers",
@@ -300,12 +300,33 @@
                 "environment"
             ],
             "time": "2016-09-01T10:05:43+00:00"
+        },
+        {
+            "name": "wp-api/basic-auth",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WP-API/Basic-Auth.git",
+                "reference": "9e9d5267c7805c024f141d115b224cdee5a10008"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WP-API/Basic-Auth/zipball/9e9d5267c7805c024f141d115b224cdee5a10008",
+                "reference": "9e9d5267c7805c024f141d115b224cdee5a10008",
+                "shasum": ""
+            },
+            "type": "wordpress-plugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Basic Authentication handler for the JSON API, used for development and debugging purposes",
+            "time": "2017-12-03 21:39:01"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wp-api/basic-auth": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

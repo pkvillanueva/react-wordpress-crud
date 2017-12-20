@@ -21,7 +21,8 @@
     "php": ">=5.6",
     "vlucas/phpdotenv": "2.4.*",
     "composer/installers": "1.4.*",
-    "johnpbloch/wordpress": "4.9.1"
+    "johnpbloch/wordpress": "4.9.1",
+    "wp-api/basic-auth": "dev-master"
   },
   "extra": {
     "wordpress-install-dir": "wp",
