@@ -1,12 +1,10 @@
 var path = require('path');
-var NODE_ENV = process.env.NODE_ENV || 'development';
-
 var webpack = require('webpack');
 var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 var webpackConfig = {
 	entry: {
-		'bundle': './src/index.js'
+		bundle: './src/index.js'
 	},
 	output: {
 		path: path.resolve(__dirname, 'build'),
@@ -25,16 +23,9 @@ var webpackConfig = {
 	},
 	plugins: [
 		new webpack.DefinePlugin({
-			'process.env': {
-				NODE_ENV: JSON.stringify( NODE_ENV )
-			}
+			'process.env.NODE_ENV': JSON.stringify('development')
 		})
 	]
 };
-
-// Additional settings to include in production environment.
-if ( NODE_ENV === 'production' ) {
-	webpackConfig.plugins.push( new UglifyJSPlugin() );
-}
 
 module.exports = webpackConfig;
