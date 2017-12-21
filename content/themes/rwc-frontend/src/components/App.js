@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+
+import Applicants from './Applicants';
 
 class App extends Component {
 	render() {
 		return (
 			<div className="container">
-				<h1>Hi there!</h1>
+				<BrowserRouter>
+					<Route exact path="/" component={Applicants} />
+				</BrowserRouter>
 			</div>
 		);
 	}

@@ -1,1 +1,1 @@
-// Silence is golden.
+export const FETCH_APPLICANTS = 'FETCH_APPLICANTS';
