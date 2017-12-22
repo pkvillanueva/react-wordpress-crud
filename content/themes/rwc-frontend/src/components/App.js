@@ -10,7 +10,7 @@ import ApplicantEdit from './Applicant/ApplicantEdit';
 class App extends Component {
 	render() {
 		return (
-			<div className="container">
+			<div className="app container-fluid">
 				<BrowserRouter>
 					<Switch>
 						<Route exact path="/" component={ApplicantList} />
