@@ -26,8 +26,8 @@ var webpackConfig = {
 					fallback: 'style-loader',
 					use: [
 						'css-loader',
-						{ 
-							loader: 'postcss-loader', 
+						{
+							loader: 'postcss-loader',
 							options: {
 								ident: 'postcss',
 								plugins: [
@@ -44,7 +44,7 @@ var webpackConfig = {
 		new webpack.DefinePlugin({
 			'process.env.NODE_ENV': JSON.stringify('development')
 		}),
-		new ExtractTextPlugin({ filename: '[name].css' }),
+		new ExtractTextPlugin({ filename: '[name].css' })
 	]
 };
 
