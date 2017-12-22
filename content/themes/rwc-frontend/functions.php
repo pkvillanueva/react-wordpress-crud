@@ -24,7 +24,7 @@ class RWC_Frontend {
 	 */
 	public function __construct() {
 		/** Add theme actions. */
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts_and_styles' ) );
 	}
 
 	/**
@@ -32,17 +32,16 @@ class RWC_Frontend {
 	 * 
 	 * @since 1.0.0
 	 */
-	public function enqueue_scripts() {
-		/** Register the app bundled script. */
-		wp_enqueue_script( 
-			'rwc-frontend', 
-			get_template_directory_uri() . '/build/bundle.js', 
-			array(), 
-			( WP_ENV === 'production' ) ? RWC_FRONTEND_VERSION : time(), 
-			true 
-		);
+	public function enqueue_scripts_and_styles() {
+		/** @var string To avoid bundled script and style version cache during development. */
+		$enqueue_version = ( WP_ENV === 'development' ) ? time() : RWC_FRONTEND_VERSION;
 
-		/** Localize script to use. */
+		/** Styles enqueue starts here. */		
+		wp_enqueue_style( 'rwc-frontend', get_template_directory_uri() . '/build/bundle.css', array(), $enqueue_version, false );
+
+		/** Scripts enqueue starts here. */
+		wp_enqueue_script( 'rwc-frontend', get_template_directory_uri() . '/build/bundle.js', array(), $enqueue_version, true );
+
 		wp_localize_script( 'rwc-frontend', 'WPOBJ', array(
 			'restRoot' => esc_url_raw( rest_url() )
 		) );
