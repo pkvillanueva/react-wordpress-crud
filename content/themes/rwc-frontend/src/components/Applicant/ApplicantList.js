@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchApplicants } from '../actions';
+import { fetchApplicants } from '../../actions';
 
 class Applicants extends Component {
 	componentDidMount() {

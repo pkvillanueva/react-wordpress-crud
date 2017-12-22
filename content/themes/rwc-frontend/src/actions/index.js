@@ -6,3 +6,7 @@ export const fetchApplicants = () => async dispatch => {
 	const res = await axios.get(WPOBJ.restRoot + 'wp/v2/applicants');
 	dispatch({ type: FETCH_APPLICANTS, payload: res.data });
 };
+
+export const submitApplicant = (values, history) => async dispatch => {
+	const res = await axios.get(WPOBJ.restRoot + 'wp/v2/applicants');
+}
