@@ -9,7 +9,10 @@ import { submitApplicant } from '../../actions';
 class ApplicantNew extends Component {
 	render() {
 		return (
-			<ApplicantForm onSubmit={(values) => this.props.submitApplicant(values, this.props.history)} />
+			<div className="applicant applicant--new">
+				<h3 className="applicant__title">Add New Applicant</h3>
+				<ApplicantForm onSubmit={(values) => this.props.submitApplicant(values, this.props.history)} />
+			</div>
 		);
 	}
 }

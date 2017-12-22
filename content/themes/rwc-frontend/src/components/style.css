@@ -1,0 +1,17 @@
+body {
+	background-color: #fafafa;
+}
+
+.app {
+	max-width: 767px;
+	margin: 50px auto;
+	padding: 0 30px;
+}
+
+.applicant__title {
+	margin-bottom: 50px;
+}
+
+.applicant__form .card {
+	margin-bottom: 35px;
+}
