@@ -53,9 +53,13 @@ let ApplicantForm = ({ handleSubmit }) => {
 			  </div>
 			  <div className="card-body">
 			    <div className="form-row">
-			      <div className="form-group col-md-4">
+			      <div className="form-group col-md-6">
 			        <label htmlFor="country">Country <span className="text-danger">*</span></label>
 			        <Field className="form-control" placeholder="USA" name="country" component="input" type="text" />
+			      </div>
+			      <div className="form-group col-md-6">
+			        <label htmlFor="state">State <span className="text-danger">*</span></label>
+			        <Field className="form-control" placeholder="Florida" name="state" component="input" type="text" />
 			      </div>
 			    </div>
 			    <div className="form-row">
@@ -64,16 +68,12 @@ let ApplicantForm = ({ handleSubmit }) => {
 			        <Field className="form-control" placeholder="ABC West 321" name="address" component="input" type="text" />
 			      </div>
 			    </div>
-			    <div className="form-row">			    
-			      <div className="form-group col-md-4">
-			        <label htmlFor="state">State <span className="text-danger">*</span></label>
-			        <Field className="form-control" placeholder="Florida" name="state" component="input" type="text" />
-			      </div>
-			      <div className="form-group col-md-4">
+			    <div className="form-row">		    
+			      <div className="form-group col-md-6">
 			        <label htmlFor="city">City <span className="text-danger">*</span></label>
 			        <Field className="form-control" placeholder="Miami" name="city" component="input" type="text" />
 			      </div>
-			      <div className="form-group col-md-4">
+			      <div className="form-group col-md-6">
 			        <label htmlFor="zip">Zip <span className="text-danger">*</span></label>
 			        <Field className="form-control" placeholder="321654" name="zip" component="input" type="text" />
 			      </div>
@@ -86,16 +86,16 @@ let ApplicantForm = ({ handleSubmit }) => {
 			  </div>
 			  <div className="card-body">
 			    <div className="form-row">
-			      <div className="form-group col-md-6">
+			      <div className="form-group col-md-12">
 			        <label htmlFor="educBgSchool">School <span className="text-danger">*</span></label>
 			        <Field className="form-control" placeholder="XYZ University" name="educBgSchool" component="input" type="text" />
 			      </div>
-			      <div className="form-group col-md-6">
-			        <label htmlFor="educBgDegree">Degree <span className="text-danger">*</span></label>
-			        <Field className="form-control" placeholder="College Degree" name="educBgDegree" component="input" type="text" />
-			      </div>
 			    </div>
 			    <div className="form-row">
+			      <div className="form-group col-md-6">
+			        <label htmlFor="educBgDegree">Degree <span className="text-danger">*</span></label>
+			        <Field className="form-control" placeholder="College" name="educBgDegree" component="input" type="text" />
+			      </div>
 			      <div className="form-group col-md-6">
 			        <label htmlFor="educBgArea">Area of Study</label>
 			        <Field className="form-control" placeholder="BS in Computer Science" name="educBgArea" component="input" type="text" />
@@ -103,6 +103,23 @@ let ApplicantForm = ({ handleSubmit }) => {
 			    </div>
 			  </div>
 			</div>
+			<div className="card">
+			  <div className="card-header">
+			    <h5>Preferred Mode of Contact</h5>
+			  </div>
+			  <div className="card-body">
+			    <div className="form-row">
+			      <div className="form-group col-md-12">
+			        <label htmlFor="modeOfContact">Select mode of contact <span className="text-danger">*</span></label>
+			        <Field className="form-control" placeholder="XYZ University" name="modeOfContact" component="select" type="text">
+		            <option>None</option>
+		            <option value="Email">Email</option>
+		            <option value="Phone">Phone</option>
+			        </Field>
+			      </div>
+			    </div>
+			  </div>
+			 </div>
 			<div className="applicant__form-submit">
 				<button type="submit" className="btn btn-primary">Submit</button>
 			</div>
