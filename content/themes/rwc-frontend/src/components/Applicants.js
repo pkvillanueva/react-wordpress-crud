@@ -20,18 +20,14 @@ class Applicants extends Component {
 	}
 }
 
-const mapStateToProps = ({ applicants }) => {
-	return {
-		applicants: applicants
-	}
-};
+const mapStateToProps = ({ applicants }) => ({
+	applicants: applicants
+});
 
-const mapDispatchToProps = dispatch => {
-	return {
-		fetchApplicants: () => {
-			dispatch(fetchApplicants());
-		}
+const mapDispatchToProps = dispatch => ({
+	fetchApplicants() {
+		dispatch(fetchApplicants());
 	}
-};
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Applicants);
