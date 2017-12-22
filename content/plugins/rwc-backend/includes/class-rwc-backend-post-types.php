@@ -63,6 +63,20 @@ class RWC_Backend_Post_Types {
 	 * @since 1.0.0
 	 */
 	public function register_applicants_rest_fields() {
+		/** First Name -- post meta field. */
+		register_rest_field( 'applicant', 'first_name', array(
+			'get_callback'    => array( $this, 'get_post_meta_api' ),
+			'update_callback' => array( $this, 'update_post_meta_api' ),
+			'schema'          => null
+		) );
+
+		/** Last Name -- post meta field. */
+		register_rest_field( 'applicant', 'last_name', array(
+			'get_callback'    => array( $this, 'get_post_meta_api' ),
+			'update_callback' => array( $this, 'update_post_meta_api' ),
+			'schema'          => null
+		) );
+
 		/** Nationality -- post meta field. */
 		register_rest_field( 'applicant', 'nationality', array(
 			'get_callback'    => array( $this, 'get_post_meta_api' ),
@@ -133,7 +147,7 @@ class RWC_Backend_Post_Types {
 			'schema'          => null
 		) );
 
-		/** SchoolDegree -- post meta field. */
+		/** Education Background -- post meta field. */
 		register_rest_field( 'applicant', 'education_background', array(
 			'get_callback'    => array( $this, 'get_post_meta_api' ),
 			'update_callback' => array( $this, 'update_post_meta_api' ),
