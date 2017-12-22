@@ -74,8 +74,8 @@ let ApplicantForm = ({ handleSubmit }) => {
 			        <Field className="form-control" placeholder="Miami" name="city" component="input" type="text" />
 			      </div>
 			      <div className="form-group col-md-4">
-			        <label htmlFor="city">Zip <span className="text-danger">*</span></label>
-			        <Field className="form-control" placeholder="321654" name="city" component="input" type="text" />
+			        <label htmlFor="zip">Zip <span className="text-danger">*</span></label>
+			        <Field className="form-control" placeholder="321654" name="zip" component="input" type="text" />
 			      </div>
 			    </div>
 			  </div>
