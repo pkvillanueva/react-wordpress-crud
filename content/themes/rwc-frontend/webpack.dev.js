@@ -2,6 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var Dotenv = require('dotenv-webpack');
 
 var webpackConfig = {
 	entry: {
@@ -44,6 +45,9 @@ var webpackConfig = {
 		new webpack.DefinePlugin({
 			'process.env.NODE_ENV': JSON.stringify('development')
 		}),
+		new Dotenv({
+      path: './.env'
+    }),
 		new ExtractTextPlugin({ filename: '[name].css' })
 	]
 };
