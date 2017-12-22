@@ -63,6 +63,13 @@ class RWC_Backend_Post_Types {
 	 * @since 1.0.0
 	 */
 	public function register_applicants_rest_fields() {
+		/** Nationality -- post meta field. */
+		register_rest_field( 'applicant', 'nationality', array(
+			'get_callback'    => array( $this, 'get_post_meta_api' ),
+			'update_callback' => array( $this, 'update_post_meta_api' ),
+			'schema'          => null
+		) );
+
 		/** Gender -- post meta field. */
 		register_rest_field( 'applicant', 'gender', array(
 			'get_callback'    => array( $this, 'get_post_meta_api' ),
@@ -77,8 +84,22 @@ class RWC_Backend_Post_Types {
 			'schema'          => null
 		) );
 
+		/** Birthday -- post meta field. */
+		register_rest_field( 'applicant', 'birthday', array(
+			'get_callback'    => array( $this, 'get_post_meta_api' ),
+			'update_callback' => array( $this, 'update_post_meta_api' ),
+			'schema'          => null
+		) );
+
 		/** Email -- post meta field. */
 		register_rest_field( 'applicant', 'email', array(
+			'get_callback'    => array( $this, 'get_post_meta_api' ),
+			'update_callback' => array( $this, 'update_post_meta_api' ),
+			'schema'          => null
+		) );
+
+		/** Country -- post meta field. */
+		register_rest_field( 'applicant', 'country', array(
 			'get_callback'    => array( $this, 'get_post_meta_api' ),
 			'update_callback' => array( $this, 'update_post_meta_api' ),
 			'schema'          => null
@@ -91,21 +112,28 @@ class RWC_Backend_Post_Types {
 			'schema'          => null
 		) );
 
-		/** Nationality -- post meta field. */
-		register_rest_field( 'applicant', 'nationality', array(
+		/** State -- post meta field. */
+		register_rest_field( 'applicant', 'state', array(
 			'get_callback'    => array( $this, 'get_post_meta_api' ),
 			'update_callback' => array( $this, 'update_post_meta_api' ),
 			'schema'          => null
 		) );
 
-		/** Birthday -- post meta field. */
-		register_rest_field( 'applicant', 'birthday', array(
+		/** City -- post meta field. */
+		register_rest_field( 'applicant', 'city', array(
 			'get_callback'    => array( $this, 'get_post_meta_api' ),
 			'update_callback' => array( $this, 'update_post_meta_api' ),
 			'schema'          => null
 		) );
 
-		/** Education Background -- post meta field. */
+		/** Zip -- post meta field. */
+		register_rest_field( 'applicant', 'zip', array(
+			'get_callback'    => array( $this, 'get_post_meta_api' ),
+			'update_callback' => array( $this, 'update_post_meta_api' ),
+			'schema'          => null
+		) );
+
+		/** SchoolDegree -- post meta field. */
 		register_rest_field( 'applicant', 'education_background', array(
 			'get_callback'    => array( $this, 'get_post_meta_api' ),
 			'update_callback' => array( $this, 'update_post_meta_api' ),
