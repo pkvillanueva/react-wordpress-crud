@@ -63,103 +63,49 @@ class RWC_Backend_Post_Types {
 	 * @since 1.0.0
 	 */
 	public function register_applicants_rest_fields() {
-		/** First Name -- post meta field. */
-		register_rest_field( 'applicant', 'first_name', array(
-			'get_callback'    => array( $this, 'get_post_meta_api' ),
-			'update_callback' => array( $this, 'update_post_meta_api' ),
-			'schema'          => null
-		) );
+		$rest_fields = array(
+			array( 'attribute' => 'first_name' ),
+			array( 'attribute' => 'last_name' ),
+			array( 'attribute' => 'nationality' ),
+			array( 'attribute' => 'gender' ),
+			array( 'attribute' => 'phone' ),
+			array( 'attribute' => 'birthday' ),
+			array( 'attribute' => 'country' ),
+			array( 'attribute' => 'address' ),
+			array( 'attribute' => 'state' ),
+			array( 'attribute' => 'city' ),
+			array( 'attribute' => 'zip' ),
+			array( 'attribute' => 'education_background' ),
+			array( 'attribute' => 'mode_of_contact' )
+		);
 
-		/** Last Name -- post meta field. */
-		register_rest_field( 'applicant', 'last_name', array(
-			'get_callback'    => array( $this, 'get_post_meta_api' ),
-			'update_callback' => array( $this, 'update_post_meta_api' ),
-			'schema'          => null
-		) );
+		$rest_fields[] = array(
+			'attribute' => 'email',
+			'args'      => array(
+				'update_callback' => array( $this, 'update_post_meta_email' )
+			)
+		);
 
-		/** Nationality -- post meta field. */
-		register_rest_field( 'applicant', 'nationality', array(
-			'get_callback'    => array( $this, 'get_post_meta_api' ),
-			'update_callback' => array( $this, 'update_post_meta_api' ),
-			'schema'          => null
-		) );
+		foreach ( $rest_fields as $key => $field ) {
+			$this->do_register_rest_field( 'applicant', $field );
+		}
+	}
 
-		/** Gender -- post meta field. */
-		register_rest_field( 'applicant', 'gender', array(
-			'get_callback'    => array( $this, 'get_post_meta_api' ),
-			'update_callback' => array( $this, 'update_post_meta_api' ),
-			'schema'          => null
-		) );
+	public function do_register_rest_field( $object_type, $field = array() ) {
+	    if ( ! isset( $field['args'] ) || empty( $field['args'] ) ) {
+	 		$field['args'] = array();
+	 	}
 
-		/** Phone -- post meta field. */
-		register_rest_field( 'applicant', 'phone', array(
-			'get_callback'    => array( $this, 'get_post_meta_api' ),
-			'update_callback' => array( $this, 'update_post_meta_api' ),
+		$defaults = array(
+	        'get_callback'    => array( $this, 'get_post_meta_api' ),
+			'update_callback' => array( $this, 'update_post_meta_text' ),
 			'schema'          => null
-		) );
+	    );
 
-		/** Birthday -- post meta field. */
-		register_rest_field( 'applicant', 'birthday', array(
-			'get_callback'    => array( $this, 'get_post_meta_api' ),
-			'update_callback' => array( $this, 'update_post_meta_api' ),
-			'schema'          => null
-		) );
+	 	$args = $field['args'];
+	    $args = wp_parse_args( $args, $defaults );
 
-		/** Email -- post meta field. */
-		register_rest_field( 'applicant', 'email', array(
-			'get_callback'    => array( $this, 'get_post_meta_api' ),
-			'update_callback' => array( $this, 'update_post_meta_api' ),
-			'schema'          => null
-		) );
-
-		/** Country -- post meta field. */
-		register_rest_field( 'applicant', 'country', array(
-			'get_callback'    => array( $this, 'get_post_meta_api' ),
-			'update_callback' => array( $this, 'update_post_meta_api' ),
-			'schema'          => null
-		) );
-
-		/** Address -- post meta field. */
-		register_rest_field( 'applicant', 'address', array(
-			'get_callback'    => array( $this, 'get_post_meta_api' ),
-			'update_callback' => array( $this, 'update_post_meta_api' ),
-			'schema'          => null
-		) );
-
-		/** State -- post meta field. */
-		register_rest_field( 'applicant', 'state', array(
-			'get_callback'    => array( $this, 'get_post_meta_api' ),
-			'update_callback' => array( $this, 'update_post_meta_api' ),
-			'schema'          => null
-		) );
-
-		/** City -- post meta field. */
-		register_rest_field( 'applicant', 'city', array(
-			'get_callback'    => array( $this, 'get_post_meta_api' ),
-			'update_callback' => array( $this, 'update_post_meta_api' ),
-			'schema'          => null
-		) );
-
-		/** Zip -- post meta field. */
-		register_rest_field( 'applicant', 'zip', array(
-			'get_callback'    => array( $this, 'get_post_meta_api' ),
-			'update_callback' => array( $this, 'update_post_meta_api' ),
-			'schema'          => null
-		) );
-
-		/** Education Background -- post meta field. */
-		register_rest_field( 'applicant', 'education_background', array(
-			'get_callback'    => array( $this, 'get_post_meta_api' ),
-			'update_callback' => array( $this, 'update_post_meta_api' ),
-			'schema'          => null
-		) );
-
-		/** Mode of Contact -- post meta field. */
-		register_rest_field( 'applicant', 'mode_of_contact', array(
-			'get_callback'    => array( $this, 'get_post_meta_api' ),
-			'update_callback' => array( $this, 'update_post_meta_api' ),
-			'schema'          => null
-		) );
+	    register_rest_field( $object_type, $field['attribute'], $args );
 	}
 
 	/**
@@ -177,7 +123,10 @@ class RWC_Backend_Post_Types {
 	}
 
 	/**
-	 * Handler for updating custom field data
+	 * Handler for updating text field
+	 * 
+	 * Basically we use this as the common way to save data to
+	 * our post types.
 	 *
 	 * @since 1.0.0
 	 *
@@ -187,7 +136,22 @@ class RWC_Backend_Post_Types {
 	 *
 	 * @return bool|int
 	 */
-	public function update_post_meta_api( $value, $object, $field_name ) {
-		return update_post_meta( $object->ID, $field_name, strip_tags( $value ) );
+	public function update_post_meta_text( $value, $object, $field_name ) {
+		return update_post_meta( $object->ID, $field_name, sanitize_text_field( $value ) );
+	}
+
+	/**
+	 * Handler for updating email field
+	 * 
+	 * @since 1.0.0
+	 *
+	 * @param mixed $value
+	 * @param object $object
+	 * @param string $field_name
+	 *
+	 * @return bool|int
+	 */
+	public function update_post_meta_email( $value, $object, $field_name ) {
+		return update_post_meta( $object->ID, $field_name, sanitize_email( $value ) );
 	}
 }
