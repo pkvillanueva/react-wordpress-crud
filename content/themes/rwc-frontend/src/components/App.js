@@ -16,7 +16,7 @@ class App extends Component {
 						<Route exact path="/" component={ApplicantList} />
 						<Route exact path="/new" component={ApplicantNew} />
 						<Route exact path="/edit/:id" component={ApplicantEdit} />
-						<Route component={ApplicantList} /> 
+						<Route component={ApplicantList} />
 					</Switch>
 				</BrowserRouter>
 			</div>

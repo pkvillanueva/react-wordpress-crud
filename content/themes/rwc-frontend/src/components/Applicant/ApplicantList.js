@@ -37,7 +37,9 @@ class ApplicantList extends Component {
 							})
 						) : (
 							<tr className="data-table__empty">
-								<td className="data-table__error-text" colSpan="5">No data found.</td>
+								<td className="data-table__error-text" colSpan="5">
+									No data found.
+								</td>
 							</tr>
 						)}
 					</tbody>
