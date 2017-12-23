@@ -5,7 +5,7 @@
  * @package RWC_Frontend
  */
 
-get_header(); 
+get_header();
 ?>
 	
 	<noscript><?php esc_html_e( 'You need to enable JavaScript to run this app.', 'rwc-frontend' ); ?></noscript>

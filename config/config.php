@@ -11,7 +11,7 @@ $env->required( array( 'WP_ENV', 'WP_HOME', 'WP_SITEURL', 'DB_NAME', 'DB_USER', 
 define( 'WP_ENV', getenv( 'WP_ENV' ) ?: 'production' );
 
 $env_file_name = 'env-' . WP_ENV . '.php';
-$env_path = $root_dir . '/config/' . $env_file_name;
+$env_path      = $root_dir . '/config/' . $env_file_name;
 
 if ( file_exists( $env_path ) ) {
 	require_once( $env_path );

@@ -1,7 +1,7 @@
 <?php
 /**
  * Initialized whenever the plugin is uninstalled
- *  
+ *
  * @package RWC Backend
  */
 
