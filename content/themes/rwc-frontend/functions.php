@@ -43,7 +43,8 @@ class RWC_Frontend {
 		wp_enqueue_script( 'rwc-frontend', get_template_directory_uri() . '/build/bundle.js', array(), $enqueue_version, true );
 
 		wp_localize_script( 'rwc-frontend', 'WPOBJ', array(
-			'restRoot' => esc_url_raw( rest_url() )
+			'restRoot' => esc_url_raw( rest_url() ),
+			'restNonce' => wp_create_nonce( 'wp_rest' )
 		) );
 	}
 }
