@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 
@@ -9,9 +9,16 @@ import { submitApplicant } from '../../actions';
 class ApplicantNew extends Component {
 	render() {
 		return (
-			<div className="applicant applicant--new">
-				<h3 className="applicant__title">Add New Applicant</h3>
-				<ApplicantForm onSubmit={(values) => this.props.submitApplicant(values, this.props.history)} />
+			<div className="page-applicants app__page">
+				<div className="toolbar">
+					<h3 className="toolbar__title">Add New Applicant</h3>					
+					<Link className="toolbar__button btn btn-secondary" to="/">
+						Cancel
+					</Link>
+				</div>
+				<div className="content">
+					<ApplicantForm onSubmit={(values) => this.props.submitApplicant(values, this.props.history)} />
+				</div>
 			</div>
 		);
 	}
