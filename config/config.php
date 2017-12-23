@@ -14,7 +14,7 @@ $env_file_name = 'env-' . WP_ENV . '.php';
 $env_path      = $root_dir . '/config/' . $env_file_name;
 
 if ( file_exists( $env_path ) ) {
-	require_once( $env_path );
+	require_once $env_path;
 }
 
 /** Set core and site url. */

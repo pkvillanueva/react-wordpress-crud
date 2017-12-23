@@ -93,6 +93,12 @@ class RWC_Backend_Post_Types {
 		}
 	}
 
+	/**
+	 * Use to register rest field with default callback
+	 *
+	 * @param  string $object_type Post type where to register the field.
+	 * @param  array  $field       Combined field attributes.
+	 */
 	public function do_register_rest_field( $object_type, $field = array() ) {
 		if ( ! isset( $field['args'] ) || empty( $field['args'] ) ) {
 			$field['args'] = array();
@@ -115,8 +121,8 @@ class RWC_Backend_Post_Types {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param  array  $object
-	 * @param  string $field_name
+	 * @param  array  $object     Object where to store meta.
+	 * @param  string $field_name Specific meta field where to store the value.
 	 *
 	 * @return string
 	 */
@@ -132,9 +138,9 @@ class RWC_Backend_Post_Types {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param mixed  $value
-	 * @param object $object
-	 * @param string $field_name
+	 * @param mixed  $value      The value to store.
+	 * @param object $object     Object where to store meta.
+	 * @param string $field_name Specific meta field where to store the value.
 	 *
 	 * @return bool|int
 	 */
@@ -147,9 +153,9 @@ class RWC_Backend_Post_Types {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param mixed  $value
-	 * @param object $object
-	 * @param string $field_name
+	 * @param mixed  $value      The value to store.
+	 * @param object $object     Object where to store meta.
+	 * @param string $field_name Specific meta field where to store the value.
 	 *
 	 * @return bool|int
 	 */

@@ -24,7 +24,7 @@ class RWC_Backend {
 	 * @var @string
 	 * @access protected
 	 */
-	protected $plugin_ID;
+	protected $plugin_id;
 
 	/**
 	 * The current version of the plugin
@@ -50,7 +50,7 @@ class RWC_Backend {
 	 * @since 1.0.0
 	 */
 	public function __construct() {
-		$this->plugin_ID  = 'rwc-backend';
+		$this->plugin_id  = 'rwc-backend';
 		$this->version    = RWC_BACKEND_VERSION;
 		$this->plugin_dir = RWC_BACKEND_DIR;
 	}
@@ -75,7 +75,7 @@ class RWC_Backend {
 	 */
 	public function load_textdomain() {
 		load_plugin_textdomain(
-			$this->plugin_ID,
+			$this->plugin_id,
 			false,
 			$this->plugin_dir . 'languages/'
 		);

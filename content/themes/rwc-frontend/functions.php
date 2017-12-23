@@ -33,7 +33,7 @@ class RWC_Frontend {
 	 * @since 1.0.0
 	 */
 	public function enqueue_scripts_and_styles() {
-		/** @var string To avoid bundled script and style version cache during development. */
+		/** To avoid bundled script and style version cache during development. */
 		$enqueue_version = ( WP_ENV === 'development' ) ? time() : RWC_FRONTEND_VERSION;
 
 		/** Styles enqueue starts here. */
