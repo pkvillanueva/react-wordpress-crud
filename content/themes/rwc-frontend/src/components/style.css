@@ -3,15 +3,57 @@ body {
 }
 
 .app {
-	max-width: 767px;
+	max-width: 960px;
 	margin: 50px auto;
 	padding: 0 30px;
 }
 
-.applicant__title {
+.toolbar {
+	display: flex;
 	margin-bottom: 50px;
 }
 
-.applicant__form .card {
+.toolbar__title {
+	margin: 0;
+}
+
+.toolbar__button {
+	margin-left: auto;
+}
+
+.data-table {
+	table-layout: fixed;
+	background-color: #fff;
+}
+
+.data-table__empty {
+	height: 250px;
+	background-color: #fff;
+	font-size: 30px;
+	text-align: center;
+}
+
+.data-table__error-text {
+	vertical-align: middle;
+}
+
+.page-applicants .card {
 	margin-bottom: 35px;
+}
+
+.page-applicants__form-submit {
+	text-align: right;
+}
+
+.information .form-control {
+	min-height: 38px;
+	background-color: #f7f7f7;
+}
+
+.information__section {
+	margin-bottom: 25px;
+}
+
+.information__section:last-child {
+	margin-bottom: 0;
 }
