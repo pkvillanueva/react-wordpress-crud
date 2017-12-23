@@ -24,6 +24,9 @@
     "johnpbloch/wordpress": "4.9.1",
     "wp-api/basic-auth": "dev-master"
   },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.0.2"
+  },
   "extra": {
     "wordpress-install-dir": "wp",
     "installer-paths": {
