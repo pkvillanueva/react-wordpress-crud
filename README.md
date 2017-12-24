@@ -35,8 +35,8 @@ Direct directories to source code:
 
 | Path                    | For                                          |
 | ----------------------- | -------------------------------------------- |
-| `/content/rwc-backend`  | Plugin for all the back-end functionalities. |
-| `/content/rwc-frontend` | React based theme for front-end.             |
+| `/content/plugins/rwc-backend`  | Plugin for all the back-end functionalities. |
+| `/content/themes/rwc-frontend` | React based theme for front-end.             |
 
 ## Basic installation
 
